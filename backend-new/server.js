@@ -7,10 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// API Key Setup
 const apiKey = process.env.GEMINI_API_KEY || "AQ.Ab8RN6IWmMFiOg5sg_S11dRRHfQywaoOmcVNe46LX22KEFaKUDg";
 const genAI = new GoogleGenerativeAI(apiKey);
 
-// ROUTE 1: SIMULATION ENGINE
+// ROUTE 1: SIMULATION ENGINE (Graph + Marketing Insights)
 app.post('/api/simulate', async (req, res) => {
     try {
         const { category, budget, targetAge, location } = req.body;
@@ -46,6 +47,7 @@ app.post('/api/simulate', async (req, res) => {
             };
         }
 
+        // Generate Chart Data Matrix
         const baseData = [
             { month: 'Jan', revenue: 4000 }, { month: 'Feb', revenue: 3000 },
             { month: 'Mar', revenue: 5000 }, { month: 'Apr', revenue: 4700 },
@@ -84,6 +86,6 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
-// Render dynamic port integration
+// Render Dynamic Port Integration (Don't Change)
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 TwinSeller Engine running on port ${PORT}`));
