@@ -7,7 +7,7 @@ import {
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
 
 // Change this link to your Render URL after hosting backend
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL = "https://meesho12.onrender.com";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
